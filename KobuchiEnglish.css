@@ -6,6 +6,10 @@ h1{
   color: #083D77;
 }
 
+svg:hover {
+  fill: red;
+}
+
 .bg-custom{
   background-color: #083D77;
 }
@@ -30,8 +34,27 @@ h1{
   color: white;
 }
 
+.btn-main {
+  font-size: 3em;
+  margin: 30px 0px;
+}
+
+.btn-main:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#language-toggle-icon {
+  margin: 10px;
+}
+
+#language-toggle-icon:hover {
+  filter: saturate(3);
+}
+
 #mainLogo {
   font-size: 7em;
   color: #083D77;
-  margin-top: 70px;
 }
+
+
