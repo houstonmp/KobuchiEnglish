@@ -6,14 +6,16 @@ color: #E94A48;
 h1{
   text-align: center;
 }
+
 /* Bootstrap navbar background override */
 .bg-custom{
   background-color: #E94A48;
 }
 /*English Comic Box */
 .comicBox {
-  min-height: 300px;
+  min-height: 270px;
   border: 1px solid black;
+  padding 20px auto;
 }
 
 /*Styled anchor tag buttons*/
@@ -34,11 +36,23 @@ h1{
   background: white;
   border-color: #CDCDCD;
 }
+
+#letters > .linkButton {
+  font-size: 25px;
+  width:65px;
+  height:65px;
+}
+
 /*Language Toggle Styling */
 #language-toggle-icon {
   margin: 10px;
 }
 
-#language-toggle-icon:hover {
-  filter: saturate(3);
+ #language-toggle-icon:hover {
+  filter: invert(0.5) sepia(1) hue-rotate(325deg) saturate(3) brightness(1);
+}
+
+#handwriting {
+  display: block;
+  margin: 20px auto;
 }

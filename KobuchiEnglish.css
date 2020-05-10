@@ -6,10 +6,15 @@ h1{
   color: #083D77;
 }
 
+svg {
+  width: 64px;
+  height: 64px;
+}
+
 /* Possible svg support for language toggle icon */
-/* svg:hover {
+ svg:hover {
   fill: red;
-} */
+}
 
 /* Bootstrap navbar background override */
 .bg-custom{
@@ -54,9 +59,9 @@ h1{
   margin: 10px;
 }
 
-#language-toggle-icon:hover {
+/* #language-toggle-icon:hover {
   filter: saturate(3);
-}
+} */
 
 /* Header Logo Styling */
 #mainLogo {
