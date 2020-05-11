@@ -6,6 +6,12 @@ h1{
   color: #083D77;
 }
 
+form {
+  border: 1px solid black;
+  border-radius: 19px;
+  padding: 20px;
+}
+
 svg {
   width: 64px;
   height: 64px;
@@ -16,6 +22,24 @@ svg {
   fill: red;
 }
 
+.sunshine1{
+  color: #E94A48;
+}
+.sunshine2{
+  color: #0085C0;
+}
+
+.sunshine3{
+  color: #00A25F;
+}
+
+.row {
+  margin-left: 30px;
+}
+
+.form-content {
+  margin-left: 30px;
+}
 /* Bootstrap navbar background override */
 .bg-custom{
   background-color: #083D77;
@@ -52,6 +76,10 @@ svg {
 .btn-main:focus {
   outline: none;
   box-shadow: none;
+}
+
+.book-unit {
+  display: inline-block;
 }
 
 /*Language Toggle Styling */
