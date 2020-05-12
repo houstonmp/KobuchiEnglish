@@ -14,12 +14,7 @@
     <link rel="stylesheet" href="Kobuchi1stGrade.css"></style>
 
     <script>
-     URL url = new URL("https://houstonmp.github.io/KobuchiEnglish/Audio/A-name.wav");
-HttpURLConnection huc = (HttpURLConnection) url.openConnection();
-int responseCode = huc.getResponseCode();
-if( responseCode == 200){
-    console.log('Your File Exist');
-}
+
     function changeLetter(letter){
       document.getElementById('handwriting').src = 'photos/handwriting/' + letter +'-min.gif';
       play(letter);
@@ -27,6 +22,7 @@ if( responseCode == 200){
 
     function play(letter){
       var audio = document.getElementById("audio");
+
       audio.src = "audio/" + letter + "-name.wav";
       audio.load();
       audio.play();
@@ -76,7 +72,9 @@ if( responseCode == 200){
         <div style="min-height:300px">
           <img id="handwriting"></img><br>
         </div>
+
         <audio controls id="audio" crossOrigin="anonymous"></audio></div>
+
     </div>
     <!-- Main Content -->
     <div class="row justify-content-center" id="sound-type">
