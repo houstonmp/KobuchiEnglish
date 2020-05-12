@@ -22,9 +22,8 @@
 
     function play(letter){
       var audio = document.getElementById("audio");
-      var source = document.getElementById("audio-source");
-
-      source.src = "audio/" + letter + "-name.wav";
+      audio.src = "audio/" + letter + "-name.wav";
+      
       audio.load();
       audio.play();
     }
@@ -74,8 +73,7 @@
           <img id="handwriting"></img><br>
         </div>
 
-        <audio controls id="audio" crossOrigin="anonymous">
-          <source id="audio-source" src=""></source>
+        <audio controls id="audio" crossOrigin="anonymous" src="">
           Error: Your browser does not support this audio format.
         </audio>
      </div>
