@@ -28,6 +28,8 @@ if( responseCode == 200){
     function play(letter){
       var audio = document.getElementById("audio");
       audio.src = "audio/" + letter + "-name.wav";
+      audio.load();
+      audio.play();
     }
 
 
