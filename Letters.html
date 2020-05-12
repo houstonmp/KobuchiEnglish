@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="Kobuchi1stGrade.css"></style>
 
     <script>
+
     function changeLetter(letter){
       document.getElementById('handwriting').src = 'photos/handwriting/' + letter +'-min.gif';
       play(letter);
@@ -21,7 +22,9 @@
 
     function play(letter){
       var audio = document.getElementById("audio");
-      audio.src = "https://houstonmp.github.io/KobuchiEnglish/audio/" + letter + "-name.wav";
+
+      audio.src = "audio/" + letter + "-name.wav";
+      audio.load();
       audio.play();
     }
 
@@ -69,7 +72,9 @@
         <div style="min-height:300px">
           <img id="handwriting"></img><br>
         </div>
-        <audio controls id="audio" crossOrigin='anonymous'></audio></div>
+
+        <audio controls id="audio" crossOrigin="anonymous"></audio></div>
+
     </div>
     <!-- Main Content -->
     <div class="row justify-content-center" id="sound-type">
