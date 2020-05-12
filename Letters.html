@@ -14,7 +14,12 @@
     <link rel="stylesheet" href="Kobuchi1stGrade.css"></style>
 
     <script>
-     app.use('/Audio', express.static('public'));
+     URL url = new URL("https://houstonmp.github.io/KobuchiEnglish/Audio/A-name.wav");
+HttpURLConnection huc = (HttpURLConnection) url.openConnection();
+int responseCode = huc.getResponseCode();
+if( responseCode == 200){
+    console.log('Your File Exist');
+}
     function changeLetter(letter){
       document.getElementById('handwriting').src = 'photos/handwriting/' + letter +'-min.gif';
       play(letter);
