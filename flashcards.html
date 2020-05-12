@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--current page css-->
     <link rel="stylesheet" href="KobuchiEnglish.css"></style>
+    <!-- current page js sheet -->
+    <script src="flashcard.js"></script>
   </head>
   <body>
 
@@ -38,15 +40,18 @@
         </li>
 
       </ul>
-    <!--  <form class="form-inline my-2 my-lg-0">
+      <!--  <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form> -->
     </div>
   </nav>
+
   <img id="language-toggle-icon" src="svgFiles/AmericanFlag.svg" alt="English Language"></img>
   <div class="container">
   <div class="row justify-content-center">
+    
+    <!-- Flashcard Information Form -->
     <form name="flashcard-prompt">
 
       <div class="container">
@@ -54,7 +59,7 @@
           <h1>Flashcards</h1>
         </div>
         <h3 class="sunshine1">Sunshine 1</h3>
-        <div class="row">
+        <div class="row check-box">
           <div class="custom-control custom-control-inline custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="customCheck1-1" name="Unit1" value="1-1">
             <label class="custom-control-label" for="customCheck1-1">1</label>
@@ -101,7 +106,7 @@
           </div>
         </div>
         <h3 class="sunshine2">Sunshine 2</h3>
-        <div class="row">
+        <div class="row check-box">
             <div class="custom-control custom-control-inline custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="customCheck2-1" name="Unit1" value="2-1">
               <label class="custom-control-label" for="customCheck2-1">1</label>
@@ -153,7 +158,7 @@
           </div>
 
           <h3 class="sunshine3">Sunshine 3</h3>
-          <div class="row ">
+          <div class="row check-box">
             <div class="custom-control custom-control-inline custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="customCheck3-1" name="Unit1" value="3-1">
               <label class="custom-control-label" for="customCheck3-1">1</label>
@@ -191,12 +196,41 @@
               <label class="custom-control-label" for="customCheck3-9">9</label>
             </div>
           </div>
-            <button class="btn btn-primary btn-md btn-block"type="submit" form="flashcard-prompt">Study</button>
+            <button class="btn btn-primary btn-md btn-block"type="submit" onclick="generateFlashcards()" form="flashcard-prompt">Study</button>
           </div>
     </form>
+
+  </div>
+  <!-- Back to Form Button -->
+  <button id="back" class="btn btn-primary btn-md btn-flashcards" onclick="showForm()">Back</button>
+  <!-- Flashcard -->
+  <div class="row justify-content-center">
+
+    <div class="flashcards col-sm-12 col-md-8" id="flashcard-front">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h2 id="english-def">Word</h2><br>
+      <br>
+      <br>
+      <p id="unit">Unit - 1</p>
+      <p id="page-num">p. 30</p>
+    </div>
+
+  </div>
+  <!-- Flashcard Nav Buttons -->
+  <div class="row justify-content-center">
+    <div class="col-2 col-xs-3">
+      <button class="btn btn-danger btn-lg btn-block btn-flashcards">left</button>
+    </div>
+    <div class="col-2 col-xs-3">
+      <button class="btn btn-danger btn-lg btn-block btn-flashcards">right</button>
+    </div>
   </div>
 
   </div>
+
 
 
   <!--Project Dependencies-->
