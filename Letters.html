@@ -15,7 +15,9 @@
 
     <script>
     function changeLetter(letter){
-      document.getElementById('handwriting').src = 'photos/handwriting/' + letter +'-min.gif';
+      var handwriting = document.getElementById('handwriting');
+      handwriting.src = '';
+      handwriting.src = 'photos/handwriting/' + letter +'-min.gif';
       play(letter);
     }
 
