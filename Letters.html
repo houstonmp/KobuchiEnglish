@@ -21,12 +21,12 @@
 
     function play(letter){
       var audio = document.getElementById("audio");
-      audio.src = "audio/" + letter + "-name.mp3";
+      audio.src = "/Audio/" + letter + "-name.mp3";
 
 
       const playPromise = audio.play();
     if (playPromise !== null){
-        playPromise.catch(() => { media.play(); })
+        playPromise.catch(() => { audio.play(); })
       }
     }
 
@@ -74,7 +74,7 @@
         <div style="min-height:300px">
           <img id="handwriting"></img><br>
         </div>
-        <audio controls id="audio"></audio></div>
+        <audio controls id="audio" crossorigin="anonymous"></audio></div>
     </div>
     <!-- Main Content -->
     <div class="row justify-content-center" id="sound-type">
