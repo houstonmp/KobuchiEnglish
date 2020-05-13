@@ -14,21 +14,55 @@
     <link rel="stylesheet" href="Kobuchi1stGrade.css"></style>
 
     <script>
+    var soundType;
     function changeLetter(letter){
-      document.getElementById('handwriting').src = 'photos/handwriting/' + letter +'-min.gif';
+      var handwriting = document.getElementById('handwriting');
+      handwriting.src = '';
+      handwriting.src = 'photos/handwriting/' + letter +'-min.gif';
       play(letter);
     }
 
     function play(letter){
       var audio = document.getElementById("audio");
-      audio.src = "audio/" + letter + "-name.mp3";
+      audio.src = "https://raw.githubusercontent.com/houstonmp/KobuchiEnglish/master/Audio/" + letter + soundType;
 
 
       const playPromise = audio.play();
     if (playPromise !== null){
-        playPromise.catch(() => { media.play(); })
+        playPromise.catch(() => { audio.play(); })
       }
     }
+
+    function changeSound(sound){
+      soundType = sound;
+      document.getElementById('handwriting').src = '';
+      document.getElementById('audio').src = '';
+      if(sound === '-name.wav'){
+        var button1 = document.getElementById('sound-name');
+        button1.style.color = 'white';
+        button1.style.background = '#E94A48';
+        button1.style.borderColor = '#E94A48';
+
+        var button2 = document.getElementById('sound-sound');
+        button2.style.color = 'inherit';
+        button2.style.background = 'white';
+        button2.style.borderColor = '#CDCDCD';
+
+      }
+      else if (sound === '-sound.wav'){
+          var button1 = document.getElementById('sound-name');
+          button1.style.color = 'inherit';
+          button1.style.background = 'white';
+          button1.style.borderColor = '#CDCDCD';
+
+          var button2 = document.getElementById('sound-sound');
+          button2.style.color = 'white';
+          button2.style.background = '#E94A48';
+          button2.style.borderColor = '#E94A48';
+      }
+    }
+
+    changSound('-name.wav');
 
 
   </script>
@@ -74,12 +108,13 @@
         <div style="min-height:300px">
           <img id="handwriting"></img><br>
         </div>
-        <audio controls id="audio"></audio></div>
+        <audio controls id="audio" crossorigin="anonymous"></audio></div>
     </div>
     <!-- Main Content -->
     <div class="row justify-content-center" id="sound-type">
-      <button type="button" onclick="changeSound()" class="linkButton">Name</button>
-      <button type="button" onclick="changeSound()" class="linkButton">Sound</button><br>
+      <button id="sound-name" type="button" onclick="changeSound('-name.wav')" class="linkButton">Letters</button>
+      <button id="sound-sound"type="button" onclick="changeSound('-sound.wav')" class="linkButton">Sounds</button>
+      <button type="button" onclick="" class="linkButton">Words</button>
     </div>
     <div class="row justify-content" id="letters">
       <button type="button" onclick="changeLetter('A')" class="linkButton">Aa</button>
