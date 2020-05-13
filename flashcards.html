@@ -50,7 +50,7 @@
   <img id="language-toggle-icon" src="svgFiles/AmericanFlag.svg" alt="English Language"></img>
   <div class="container">
   <div class="row justify-content-center">
-    
+
     <!-- Flashcard Information Form -->
     <form name="flashcard-prompt">
 
@@ -196,7 +196,7 @@
               <label class="custom-control-label" for="customCheck3-9">9</label>
             </div>
           </div>
-            <button class="btn btn-primary btn-md btn-block"type="submit" onclick="generateFlashcards()" form="flashcard-prompt">Study</button>
+            <button class="btn btn-primary btn-md btn-block"type="submit" onclick="generateFlashcards();" form="flashcard-prompt">Study</button>
           </div>
     </form>
 
@@ -206,16 +206,18 @@
   <!-- Flashcard -->
   <div class="row justify-content-center">
 
-    <div class="flashcards col-sm-12 col-md-8" id="flashcard-front">
+    <div class="flashcards col-sm-12 col-md-8" id="flashcard-front" onclick="cardFlip()">
+      <p id="pos" lang="en"></p>
       <br>
       <br>
       <br>
       <br>
-      <h2 id="english-def">Word</h2><br>
+      <h2 id="definition" lang="en"></h2><br>
       <br>
       <br>
-      <p id="unit">Unit - 1</p>
-      <p id="page-num">p. 30</p>
+      <p id="unit">Unit</p>
+      <!-- <p　style="margin:50%;">クリックすればフリップします</p> -->
+      <p id="page-num">p.</p>
     </div>
 
   </div>
@@ -237,6 +239,11 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+  <script type="text/javascript">
+  //Generate Array of Vocabulary Terms on Page Load
+    // $(document).ready(function(){
+        loadArray();
+     // });
+  </script>
   </body>
 </html>
