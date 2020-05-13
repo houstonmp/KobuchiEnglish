@@ -132,3 +132,10 @@ border-top: 5px solid red;
   font-size: 7em;
   color: #083D77;
 }
+
+#pos {
+  background-color: #E94A48;
+  border-radius: 0px 10px 10px 0px;
+  color: white;
+  padding: 0px 15px;
+}

@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="Kobuchi1stGrade.css"></style>
 
     <script>
-
     function changeLetter(letter){
       document.getElementById('handwriting').src = 'photos/handwriting/' + letter +'-min.gif';
       play(letter);
@@ -23,8 +22,6 @@
     function play(letter){
       var audio = document.getElementById("audio");
       audio.src = "audio/" + letter + "-name.wav";
-      
-      audio.load();
       audio.play();
     }
 
@@ -72,12 +69,7 @@
         <div style="min-height:300px">
           <img id="handwriting"></img><br>
         </div>
-
-        <audio controls id="audio" crossOrigin="anonymous" src="" content-type="audio/wav">
-          Error: Your browser does not support this audio format.
-        </audio>
-     </div>
-
+        <audio controls id="audio"></audio></div>
     </div>
     <!-- Main Content -->
     <div class="row justify-content-center" id="sound-type">
