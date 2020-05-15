@@ -64,9 +64,21 @@ function loadFlashcard(){
 }
 
  function setCurrentCard(move){
-    if(currentCard>0){
+    if(currentCard>0 && currentCard<vocabData.length-1){
      currentCard += move;
      loadFlashcard();
+   }
+   else if(currentCard==0){
+     if(move>0){
+       currentCard += move;
+       loadFlashcard();
+     }
+   }
+   else if(currentCard==vocabData.length-1){
+     if(move<0){
+       currentCard += move;
+       loadFlashcard();
+     }
    }
  }
 
