@@ -1,6 +1,6 @@
-var txtbook1 = {
-  var 1 = [], 2 = [];
-};
+// var txtbook1 = {
+//   var 1 = [], 2 = [];
+// };
 var vocabData = [];
 var i;
 var currentCard = 0;
