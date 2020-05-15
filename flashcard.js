@@ -1,5 +1,37 @@
-var yourArray, i;
-var currentCard = [];
+var vocabData, i;
+var currentCard = 0;
+
+//initializes Array of Vocabulary Words (vocabArray)
+function initializeArray(){
+  readTSV();
+}
+
+function parseTSV(tsv){
+   var cardObj;
+   var f;
+   var tsvRows = tsv.split("\n");
+   //headings = tsvRows[0].split('\t');
+   for(i=1;i<csvRows.length-1;i++){
+   tsvX = tsvRows[i].split('\t');
+   cardObj = new Object();
+       for(f=0;f<5;f++){
+           vocabData.push(tsvX[f]);
+       }
+   }
+}
+
+function readTSV(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      parseTSV(this.responseText);
+    }
+  };
+  xhttp.open("GET", "text/vocab.tsv", true);
+  xhttp.send();
+}
+
+
 
 //Hide form / Generate Flashcards
 function generateFlashcards(){
@@ -17,26 +49,27 @@ function generateFlashcards(){
   //   array.push(checkboxes[i].value);
   //   console.log(checkboxes[i].value);
   // }
-
 }
 
 //Hide Flashcards / Show Form
 function showForm(){
-
   document.getElementsByTagName('form')[0].style.display = 'block';
   document.querySelectorAll('.btn-flashcards').forEach(el => {el.style.display = 'none';});
   document.getElementsByClassName('flashcards')[0].style.display="none";
 }
 
 function loadFlashcard(){
-  document.getElementById('pos').innerHTML = currentCard[3];
-  document.getElementById('definition').innerHTML = currentCard[0];
-  document.getElementById('unit').innerHTML = 'Unit ' + currentCard[2];
-  document.getElementById('page-num').innerHTML = 'p. ' + currentCard[4];
+  document.getElementById('pos').innerHTML = vocabData[currentCard][3];
+  document.getElementById('definition').innerHTML = vocabData[currentCard][0];
+  document.getElementById('unit').innerHTML = 'Unit ' + vocabData[currentCard][2];
+  document.getElementById('page-num').innerHTML = 'p. ' + vocabData[currentCard][4];
 }
 
- function loadArray(){
-     currentCard = ['apple','リンゴ','1-1','名詞','33'];
+ function setCurrentCard(move){
+    if(currentCard>0){
+     currentCard += move;
+     loadFlashcard();
+   }
  }
 
 function cardFlip(){
@@ -62,6 +95,8 @@ function cardFlip(){
   }
 }
 
+//Part of Speech check
+//Function: Checks Part of Speech and Translates
 function posCheck(pos){
   if(pos === '名詞'){
     return 'Noun';
@@ -73,3 +108,5 @@ function posCheck(pos){
     return 'Error';
   }
 }
+
+initializeArray();

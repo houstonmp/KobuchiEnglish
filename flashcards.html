@@ -224,10 +224,10 @@
   <!-- Flashcard Nav Buttons -->
   <div class="row justify-content-center">
     <div class="col-2 col-xs-3">
-      <button class="btn btn-danger btn-lg btn-block btn-flashcards">left</button>
+      <button class="btn btn-danger btn-lg btn-block btn-flashcards" onclick="setCurrentCard(-1);">left</button>
     </div>
     <div class="col-2 col-xs-3">
-      <button class="btn btn-danger btn-lg btn-block btn-flashcards">right</button>
+      <button class="btn btn-danger btn-lg btn-block btn-flashcards"onclick="setCurrentCard(1);">right</button>
     </div>
   </div>
 
@@ -242,7 +242,7 @@
   <script type="text/javascript">
   //Generate Array of Vocabulary Terms on Page Load
     // $(document).ready(function(){
-        loadArray();
+      //  loadArray();
      // });
   </script>
   </body>
