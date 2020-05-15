@@ -11,7 +11,7 @@ function parseTSV(tsv){
    var f;
    var tsvRows = tsv.split("\n");
    //headings = tsvRows[0].split('\t');
-   for(i=1;i<csvRows.length-1;i++){
+   for(i=1;i<tsvRows.length-1;i++){
    tsvX = tsvRows[i].split('\t');
    cardObj = new Object();
        for(f=0;f<5;f++){
