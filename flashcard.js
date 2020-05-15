@@ -91,17 +91,16 @@ function cardFlip(){
 
     def.setAttribute('lang','jp');
 
-    pos.innerHTML = currentCard[3];
-    def.innerHTML = currentCard[1];
-
-
+    pos.innerHTML = vocabData[currentCard][3];
+    def.innerHTML = vocabData[currentCard][1];
   }
+  
   else{
     pos.setAttribute('lang','en');
     def.setAttribute('lang','en');
 
-    pos.innerHTML = posCheck(currentCard[3]);
-    def.innerHTML = currentCard[0];
+    pos.innerHTML = posCheck(vocabData[currentCard][3]);
+    def.innerHTML = vocabData[currentCard][0];
   }
 }
 
