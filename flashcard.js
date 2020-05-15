@@ -1,4 +1,5 @@
-var vocabData, i;
+var vocabData = [];
+var i;
 var currentCard = 0;
 
 //initializes Array of Vocabulary Words (vocabArray)
