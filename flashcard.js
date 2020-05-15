@@ -1,3 +1,6 @@
+var txtbook1 = {
+  var 1 = [], 2 = [];
+};
 var vocabData = [];
 var i;
 var currentCard = 0;
@@ -94,7 +97,7 @@ function cardFlip(){
     pos.innerHTML = vocabData[currentCard][3];
     def.innerHTML = vocabData[currentCard][1];
   }
-  
+
   else{
     pos.setAttribute('lang','en');
     def.setAttribute('lang','en');
@@ -112,6 +115,9 @@ function posCheck(pos){
   }
   else if(pos === '動詞'){
     return 'Verb';
+  }
+  else if(pos===''){
+    return '';
   }
   else{
     return 'Error';
