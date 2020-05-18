@@ -135,7 +135,8 @@ border-top: 5px solid red;
 
 #pos {
   background-color: #E94A48;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0px 0px 10px 10px;
   color: white;
   padding: 0px 15px;
+  margin: 0 auto;
 }

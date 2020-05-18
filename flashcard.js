@@ -9,6 +9,38 @@ var currentCard = 0;
 //function initializeArray(){
 
 //}
+//Hide Flashcards / Show Form
+function showForm(){
+  document.getElementsByTagName('form')[0].style.display = 'block';
+  document.querySelectorAll('.btn-flashcards').forEach(el => {el.style.display = 'none';});
+  document.getElementsByClassName('flashcards')[0].style.display="none";
+}
+
+function showFlashcard(){
+  document.getElementsByTagName('form')[0].style.display = 'none';
+  document.querySelectorAll('.btn-flashcards').forEach(el => {el.style.display = 'block';});
+  document.getElementsByClassName('flashcards')[0].style.display="block";
+}
+
+function loadFlashcard(){
+  document.getElementById('pos').innerHTML = posCheck(vocabData[currentCard][3]);
+  document.getElementById('definition').innerHTML = vocabData[currentCard][0];
+  document.getElementById('unit').innerHTML = 'Unit ' + vocabData[currentCard][2].slice(2,vocabData[currentCard][2].length);
+
+  //Check Textbook and Apply Border Styling
+  debugger;
+  if(vocabData[currentCard][2].slice(0,2)=='1-'){
+    document.getElementById('flashcard-front').style.borderTop = '5px solid #E94A48';
+  }
+  else if(vocabData[currentCard][2].slice(0,2)=='2-'){
+    document.getElementById('flashcard-front').style.borderTop = '5px solid #0085C0'
+  }
+  else{
+    document.getElementById('flashcard-front').style.borderTop = '5px solid #00A25F'
+  }
+  document.getElementById('page-num').innerHTML = 'p. ' + vocabData[currentCard][4];
+}
+
 
 function parseTSV(tsv){
    var cardObj;
@@ -21,79 +53,76 @@ function parseTSV(tsv){
    }
 }
 
-function readTSV(file){
+function readTSV(file, callback){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       parseTSV(this.responseText);
+      callback();
     }
   };
   xhttp.open("GET", "text/" + file, true);
-  xhttp.send();
+  xhttp.send();  
 }
-
-
 
 //Hide form / Generate Flashcards
 function generateFlashcards(){
+
   var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
-
   if(checkboxes.length > 0){
-
-  vocabData = [];
-
-  document.getElementsByTagName('form')[0].style.display = 'none';
-  document.querySelectorAll('.btn-flashcards').forEach(el => {el.style.display = 'block';});
-  document.getElementsByClassName('flashcards')[0].style.display="block";
-
+    vocabData = [];
+    currentCard = 0;
 
 //   console.log('enterred');
-   var array = []
-
+   var array = [];
 
    for (var i = 0; i < checkboxes.length; i++) {
      //array.push(checkboxes[i].value);
-     readTSV(checkboxes[i].value + '.tsv');
+     readTSV(checkboxes[i].value + '.tsv', loadFlashcard);
      console.log("Loading XML File: " + checkboxes[i].value);
    }
 
-   loadFlashcard();
+  showFlashcard();
+  document.getElementById('left').style.display = 'none';
+
   }
   else{
     alert("Error: Please select checkbox");
   }
 }
 
-//Hide Flashcards / Show Form
-function showForm(){
-  document.getElementsByTagName('form')[0].style.display = 'block';
-  document.querySelectorAll('.btn-flashcards').forEach(el => {el.style.display = 'none';});
-  document.getElementsByClassName('flashcards')[0].style.display="none";
-}
 
-function loadFlashcard(){
-  document.getElementById('pos').innerHTML = vocabData[currentCard][3];
-  document.getElementById('definition').innerHTML = vocabData[currentCard][0];
-  document.getElementById('unit').innerHTML = 'Unit ' + vocabData[currentCard][2];
-  document.getElementById('page-num').innerHTML = 'p. ' + vocabData[currentCard][4];
-}
 
  function setCurrentCard(move){
-    if(currentCard>0 && currentCard<vocabData.length-1){
+
+  //See if Card can move
+    if(currentCard > 0 && currentCard < vocabData.length-1){
      currentCard += move;
      loadFlashcard();
+
    }
    else if(currentCard==0){
      if(move>0){
        currentCard += move;
        loadFlashcard();
-     }
+     }  
    }
    else if(currentCard==vocabData.length-1){
      if(move<0){
        currentCard += move;
        loadFlashcard();
      }
+   }
+
+   if(currentCard==0){
+    document.getElementById('left').style.display = 'none';
+   }
+   else if(currentCard==vocabData.length-1){
+    document.getElementById('right').style.display = 'none';
+   }
+   else{
+     document.getElementById('left').style.display = 'block';
+     document.getElementById('right').style.display = 'block';
    }
  }
 
