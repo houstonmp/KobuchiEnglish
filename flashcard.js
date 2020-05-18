@@ -6,9 +6,9 @@ var i;
 var currentCard = 0;
 
 //initializes Array of Vocabulary Words (vocabArray)
-function initializeArray(){
-  readTSV();
-}
+//function initializeArray(){
+
+//}
 
 function parseTSV(tsv){
    var cardObj;
@@ -21,14 +21,14 @@ function parseTSV(tsv){
    }
 }
 
-function readTSV(){
+function readTSV(file){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       parseTSV(this.responseText);
     }
   };
-  xhttp.open("GET", "text/vocab.tsv", true);
+  xhttp.open("GET", "text/" + file, true);
   xhttp.send();
 }
 
@@ -36,20 +36,30 @@ function readTSV(){
 
 //Hide form / Generate Flashcards
 function generateFlashcards(){
+  if(checkboxes.length > 0){
+
+  vocabData = [];
 
   document.getElementsByTagName('form')[0].style.display = 'none';
   document.querySelectorAll('.btn-flashcards').forEach(el => {el.style.display = 'block';});
   document.getElementsByClassName('flashcards')[0].style.display="block";
 
+
+//   console.log('enterred');
+   var array = []
+   var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+   for (var i = 0; i < checkboxes.length; i++) {
+     //array.push(checkboxes[i].value);
+     readTSV(checkboxes[i].value + '.tsv');
+     console.log("Loading XML File: " + checkboxes[i].value);
+   }
+
    loadFlashcard();
-  // console.log('enterred');
-  // var array = []
-  // var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-  //
-  // for (var i = 0; i < checkboxes.length; i++) {
-  //   array.push(checkboxes[i].value);
-  //   console.log(checkboxes[i].value);
-  // }
+  }
+  else{
+    alert("Error: Please select checkbox");
+  }
 }
 
 //Hide Flashcards / Show Form
@@ -124,4 +134,4 @@ function posCheck(pos){
   }
 }
 
-initializeArray();
+//initializeArray();
