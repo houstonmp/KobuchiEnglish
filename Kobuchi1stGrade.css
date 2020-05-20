@@ -46,6 +46,18 @@ h1{
   height:65px;
 }
 
+.disabled-btn{
+  color: white;
+  background: #bfbfbf;
+  border: 2px solid #CDCDCD;
+}
+
+.disabled-btn:hover{
+  color: white;
+  background: #bfbfbf;
+  border: 2px solid #CDCDCD;
+}
+
 #sound-type{
   background-color: rgba(0,133,192,0.75);
 }

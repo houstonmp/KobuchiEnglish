@@ -7,8 +7,9 @@
     <title>Kobuchisawa English</title>
     <!--include icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--include main font-->
+    <!--include main fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
     <!--include Bootstrap 4.4.1-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--current page css-->
@@ -60,11 +61,20 @@
     <form name="flashcard-prompt">
 
       <div class="container">
-        <div class="row justify-content-center">
-          <h1>Flashcards</h1>
+        <div class="row justify-content-center text-center">
+          <div class="col-12">
+            <h1>Flashcards</h1>
+          </div>
+          <div class="col-12">
+            <p lang="jp">勉強したいユニットをクリックしてください</p>
+          </div>
         </div>
         <h3 class="sunshine1">Sunshine 1</h3>
         <div class="row check-box">
+          <div class="custom-control custom-control-inline custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1-0" name="Unit0" value="1-0">
+            <label class="custom-control-label" for="customCheck1-0">0</label>
+          </div>
           <div class="custom-control custom-control-inline custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="customCheck1-1" name="Unit1" value="1-1">
             <label class="custom-control-label" for="customCheck1-1">1</label>
@@ -211,8 +221,8 @@
   <!-- Flashcard -->
   <div class="row justify-content-center">
 
-    <div class="flashcards col-sm-12 col-md-8" id="flashcard-front" onclick="cardFlip()">
-      <p id="pos" lang="en"></p>
+    <div class="flashcards col-md-8 col-lg-6" id="flashcard-front" onclick="cardFlip()">
+      <p id="pos" lang="jp"></p>
       <br>
       <br>
       <br>
@@ -228,10 +238,13 @@
   </div>
   <!-- Flashcard Nav Buttons -->
   <div class="row justify-content-center">
-    <div class="col-3">
+    <div class="col-4 col-md-3 col-lg-2">
       <button id="left" class="btn btn-danger btn-lg btn-block btn-flashcards" onclick="setCurrentCard(-1);">left</button>
     </div>
-    <div class="col-3">
+    <div class="col-4 col-md-2 col-lg-2 text-center">
+      <p><span id="pgnum"></span></p>
+    </div>
+    <div class="col-4 col-md-3 col-lg-2 ">
       <button id="right" class="btn btn-danger btn-lg btn-block btn-flashcards"onclick="setCurrentCard(1);">right</button>
     </div>
   </div>

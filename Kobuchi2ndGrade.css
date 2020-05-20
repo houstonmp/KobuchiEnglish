@@ -28,8 +28,6 @@ h1{
   background: #0085C0;
   border: 2px solid #0085C0;
   color:white;
-
-
 }
 
 .linkButton:hover{
@@ -38,6 +36,18 @@ h1{
   color: inherit;
   background: white;
 
+}
+
+.disabled-btn{
+  color: white;
+  background: #bfbfbf;
+  border: 2px solid #0085C0;
+}
+
+.disabled-btn:hover{
+  color: white;
+  background: #bfbfbf;
+  border: 2px solid #CDCDCD;
 }
 
 /*Language Toggle Styling */

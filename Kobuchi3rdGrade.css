@@ -37,6 +37,19 @@ h1{
   background: white;
 
 }
+
+.disabled-btn{
+  color: white;
+  background: #bfbfbf;
+  border: 2px solid #CDCDCD;
+}
+
+.disabled-btn:hover{
+  color: white;
+  background: #bfbfbf;
+  border: 2px solid #CDCDCD;
+}
+
 /*Language Toggle Styling */
 #language-toggle-icon {
   margin: 10px;

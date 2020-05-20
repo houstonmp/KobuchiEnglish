@@ -14,21 +14,23 @@ function showForm(){
   document.getElementsByTagName('form')[0].style.display = 'block';
   document.querySelectorAll('.btn-flashcards').forEach(el => {el.style.display = 'none';});
   document.getElementsByClassName('flashcards')[0].style.display="none";
+  document.getElementById('pgnum').style.display="none";
 }
 
 function showFlashcard(){
   document.getElementsByTagName('form')[0].style.display = 'none';
   document.querySelectorAll('.btn-flashcards').forEach(el => {el.style.display = 'block';});
   document.getElementsByClassName('flashcards')[0].style.display="block";
+  document.getElementById('pgnum').style.display="block";
 }
 
 function loadFlashcard(){
-  document.getElementById('pos').innerHTML = posCheck(vocabData[currentCard][3]);
+  document.getElementById('pos').innerHTML = vocabData[currentCard][3]; //posCheck(vocabData[currentCard][3]);
   document.getElementById('definition').innerHTML = vocabData[currentCard][0];
   document.getElementById('unit').innerHTML = 'Unit ' + vocabData[currentCard][2].slice(2,vocabData[currentCard][2].length);
+  document.getElementById('pgnum').innerHTML = (currentCard + 1) + " / " + vocabData.length;
 
   //Check Textbook and Apply Border Styling
-  debugger;
   if(vocabData[currentCard][2].slice(0,2)=='1-'){
     document.getElementById('flashcard-front').style.borderTop = '5px solid #E94A48';
   }
@@ -47,7 +49,7 @@ function parseTSV(tsv){
    var f;
    var tsvRows = tsv.split("\n");
    //headings = tsvRows[0].split('\t');
-   for(i=1;i<tsvRows.length-1;i++){
+   for(i=1;i<tsvRows.length;i++){
    tsvX = tsvRows[i].split('\t');
    vocabData.push(tsvX);
    }
@@ -96,7 +98,7 @@ function generateFlashcards(){
  function setCurrentCard(move){
 
   //See if Card can move
-    if(currentCard > 0 && currentCard < vocabData.length-1){
+    if(currentCard > 0 && currentCard < vocabData.length){
      currentCard += move;
      loadFlashcard();
 
@@ -107,7 +109,7 @@ function generateFlashcards(){
        loadFlashcard();
      }  
    }
-   else if(currentCard==vocabData.length-1){
+   else if(currentCard==vocabData.length){
      if(move<0){
        currentCard += move;
        loadFlashcard();
@@ -124,14 +126,15 @@ function generateFlashcards(){
      document.getElementById('left').style.display = 'block';
      document.getElementById('right').style.display = 'block';
    }
+   document.getElementById('pgnum').innerHTML = (currentCard + 1) + " / " + vocabData.length;
  }
 
 function cardFlip(){
   var pos = document.getElementById("pos");
   var def = document.getElementById('definition');
 
-  if(pos.getAttribute("lang")=='en'){
-    pos.setAttribute('lang','jp');
+  if(def.getAttribute("lang")=='en'){
+    // pos.setAttribute('lang','jp');
 
     def.setAttribute('lang','jp');
 
@@ -140,29 +143,29 @@ function cardFlip(){
   }
 
   else{
-    pos.setAttribute('lang','en');
+    // pos.setAttribute('lang','en');
     def.setAttribute('lang','en');
 
-    pos.innerHTML = posCheck(vocabData[currentCard][3]);
+    pos.innerHTML = vocabData[currentCard][3]; //posCheck(vocabData[currentCard][3]);
     def.innerHTML = vocabData[currentCard][0];
   }
 }
 
 //Part of Speech check
 //Function: Checks Part of Speech and Translates
-function posCheck(pos){
-  if(pos === '名詞'){
-    return 'Noun';
-  }
-  else if(pos === '動詞'){
-    return 'Verb';
-  }
-  else if(pos===''){
-    return '';
-  }
-  else{
-    return 'Error';
-  }
-}
+//function posCheck(pos){
+//  if(pos === '名詞'){
+//    return 'Noun';
+//  }
+//  else if(pos === '動詞'){
+//    return 'Verb';
+//   }
+//   else if(pos===''){
+//     return '';
+//   }
+//   else{
+//     return 'Error';
+//   }
+// }
 
 //initializeArray();
