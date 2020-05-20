@@ -3,6 +3,7 @@ font-family: 'Balsamiq Sans', cursive;
 }
 
 h1{
+  display: block;
   color: #083D77;
 }
 
@@ -139,4 +140,8 @@ border-top: 5px solid red;
   color: white;
   padding: 0px 15px;
   margin: 0 auto;
+}
+
+#pgnum {
+  font-size: 20px;
 }
